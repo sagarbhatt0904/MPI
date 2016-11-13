@@ -1,0 +1,120 @@
+SLURM_JOBID=5998975
+SLURM_JOB_NODELIST=cpn-k16-24-02
+SLURM_NNODES=1
+SLURM_NPROCS=
+SLURMTMPDIR=/scratch/5998975
+working directory = /user/sbhatt2/HPC/assignment_3/q3
+
+Currently Loaded Modules:
+  1) lmod/6.0.1   2) StdEnv   3) intel/15.0   4) intel-mpi/5.0.2
+
+PI using MPI: 
+
+
+ For 1 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 1 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 1 Nodes:
+
+Time : 5.9712
+Area of the mandlebrot set =1.5095
+
+ For 2 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 2 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 2 Nodes:
+
+Time : 3.01636
+Area of the mandlebrot set =1.5095
+
+ For 3 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 3 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 3 Nodes:
+
+Time : 5.69785
+Area of the mandlebrot set =1.5095
+
+ For 4 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 4 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 4 Nodes:
+
+Time : 3.00122
+Area of the mandlebrot set =1.5095
+
+ For 5 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 5 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 5 Nodes:
+
+Time : 4.23637
+Area of the mandlebrot set =1.5095
+
+ For 6 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 6 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 6 Nodes:
+
+Time : 2.91779
+Area of the mandlebrot set =1.5095
+
+ For 7 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 7 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 7 Nodes:
+
+Time : 3.29884
+Area of the mandlebrot set =1.5095
+
+ For 8 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 8 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 8 Nodes:
+
+Time : 2.4816
+Area of the mandlebrot set =1.5095
+
+ For 9 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 9 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 9 Nodes:
+
+Time : 2.71814
+Area of the mandlebrot set =1.5095
+
+ For 10 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 10 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 10 Nodes:
+
+Time : 2.14532
+Area of the mandlebrot set =1.5095
+
+ For 11 Processes: 
+
+srun: Warning: can't honor --ntasks-per-node set to 12 which doesn't match the requested tasks 11 with the number of requested nodes 1.  Ignoring --ntasks-per-node.
+
+For 11 Nodes:
+
+Time : 2.23366
+Area of the mandlebrot set =1.5095
+
+ For 12 Processes: 
+
+
+For 12 Nodes:
+
+Time : 1.89349
+Area of the mandlebrot set =1.5095
+Completed!
