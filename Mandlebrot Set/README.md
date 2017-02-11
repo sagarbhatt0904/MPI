@@ -1,6 +1,6 @@
 #MANDLEBROTSET
 
-###INSTRRUCTIONS FOR BUILDING THE CODE
+###INSTRUCTIONS FOR BUILDING THE CODE
 
 mpic++ timer.C (codename) -o (codename)
 
