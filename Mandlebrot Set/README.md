@@ -2,7 +2,7 @@
 
 ###INSTRRUCTIONS FOR BUILDING THE CODE
 
-mpic++ timer.C <codename> -o <codename>
+mpic++ timer.C (codename) -o (codename)
 
 
 
