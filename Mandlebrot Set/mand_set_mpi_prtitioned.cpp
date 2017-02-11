@@ -42,14 +42,14 @@ int main(int argc, char *argv[])
     	cout<<"Error starting MPI program.  Terminating. \n";
     	MPI_Abort(MPI_COMM_WORLD, ierr);
   	}
-  	 int color = np%2;
+  	 int color = my_p%2;
 
 	// Split the communicator based on the color and use the
 	// original rank for ordering
 	MPI_Comm new_comm;
 	MPI_Comm_split(MPI_COMM_WORLD, color, my_p, &new_comm);
-	ierr= MPI_Comm_rank(MPI_COMM_WORLD, &new_my_p);
-    ierr= MPI_Comm_size(MPI_COMM_WORLD, &new_np);
+	ierr= MPI_Comm_rank(new_comm, &new_my_p);
+    ierr= MPI_Comm_size(new_comm, &new_np);
    
   
 	
@@ -71,11 +71,11 @@ int main(int argc, char *argv[])
 	
 	int count = N/new_np;
     int start, end ;
-    start=(my_p)*count;
-    end=(my_p+1)*count;
+    start=(new_my_p)*count;
+    end=(new_my_p+1)*count;
 	 for(int i=start; i<end; i++)
 	{
-		for(int j=0; j<N; j++)
+		for(int j=0; j<(N/2); j++)
 		{
 			iter=0;
 			double x=0,y=0, tmp;
@@ -98,16 +98,21 @@ int main(int argc, char *argv[])
 	}
 	
 	ierr=MPI_Reduce(&area1, &area_g1, 1, MPI_DOUBLE, MPI_SUM, root, new_comm);
+
+	if (my_p == 0 && new_my_p==0)
+	{
+	  MPI_Recv(&area_g2, 1, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+	} 
 }
 else
 {	
 	int count = N/new_np;
     int start, end ;
-    start=(my_p)*count;
-    end=(my_p+1)*count;
+    start=(new_my_p)*count;
+    end=(new_my_p+1)*count;
 	 for(int i=start; i<end; i++)
 	{
-		for(int j=0; j<N; j++)
+		for(int j=(N/2); j<N; j++)
 		{
 			iter=0;
 			double x=0,y=0, tmp;
@@ -129,8 +134,13 @@ else
 		}			
 	}
 	ierr=MPI_Reduce(&area2, &area_g2, 1, MPI_DOUBLE, MPI_SUM, root, new_comm);
+
+	if (new_my_p == 0 && my_p==1)
+	{
+	  MPI_Send(&area_g2, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
+	}
 }
-	// cout<<"From Process: "<<my_p<<" Area of the mandlebrot set ="<<area<<endl;
+	
 	if(my_p==root)
 	{
 		get_time(&after);
@@ -139,10 +149,10 @@ else
 		area_net=area_g1+area_g2;
 		cout<<"\nFor "<<np<<" Nodes:"<<endl;
 		cout<<endl<<"Time : "<<time_s<<endl<<"Area of the mandlebrot set ="<<area_net<<endl;
-		ofstream fout;   
-        fout.open("s_scaling_s.csv",ios::app);
-        fout<<np<<","<<time_s<<endl;
-        fout.close();	
+		// ofstream fout;   
+  //       fout.open("s_scaling_s.csv",ios::app);
+  //       fout<<np<<","<<time_s<<endl;
+  //       fout.close();	
 	}		
 	
 
